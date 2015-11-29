@@ -35,9 +35,23 @@ app.use('/', routes);
 
 app.use('/users', users);
 
+app.use('/getuser', function(req, res){
+
+  SC.get('/users', function(err, user) {
+  if ( err ) {
+    throw err;
+  } else {
+    console.log('user retrieved:', user);
+  }
+
+  res
+});
+
+})
+
 app.use('/soundcloud', function(req, res){
   var url = SC.getConnectUrl();
-
+  console.log("hello there");
   res.writeHead(301, {
     'Location': url
   });

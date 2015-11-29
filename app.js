@@ -43,9 +43,8 @@ app.use('/me', function(req, res){
   } else {
     console.log('user retrieved:', user);
   }
-
-  res.end();
 });
+  res.end();
 
 });
 

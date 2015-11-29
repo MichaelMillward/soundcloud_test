@@ -14,7 +14,8 @@ var app = express();
 // Initialize client
 SC.init({
   id: 'e8a4c59ab006807fbd0b5fda265802d2',
-  secret: '95764ea9b46bca2f63397a9eb26bd2c8'
+  secret: '95764ea9b46bca2f63397a9eb26bd2c8',
+  uri: 'https://tranquil-atoll-5562.herokuapp.com/redirect'
 });
 
 
@@ -45,6 +46,16 @@ app.use('/soundcloud', function(req, res){
 });
 
 app.use('/redirect', function(req, res){
+  var code = req.query.code;
+
+  SC.authorize(code, function(err, accessToken) {
+    if ( err ) {
+      throw err;
+    } else {
+      // Client is now authorized and able to make API calls
+      console.log('access token:', accessToken);
+    }
+  });
 
 });
 

@@ -10,7 +10,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
-
+var token = 0;
 // Initialize client
 SC.init({
   id: 'e8a4c59ab006807fbd0b5fda265802d2',
@@ -54,9 +54,10 @@ app.use('/redirect', function(req, res){
     } else {
       // Client is now authorized and able to make API calls
       console.log('access token:', accessToken);
+      token = accessToken;
     }
   });
-
+  console.log("access token var: " + token);
   res.end();
 });
 

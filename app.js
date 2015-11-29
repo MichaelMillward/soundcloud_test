@@ -36,11 +36,11 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.use('/me', function(req, res){
-  SC.get('/me', function(err, user) {
+  SC.get('/me', function(err, pers) {
     if ( err ) {
       throw err;
     } else {
-      console.log('user retrieved:', user);
+      console.log('user retrieved:', pers);
     }
   });
   res.end();
@@ -59,13 +59,13 @@ app.use('/soundcloud', function(req, res){
 app.use('/redirect', function(req, res){
   var code = req.query.code;
 
-  SC.authorize(code, function(err, accessToken) {
+  SC.authorize(code, function(err, aT) {
     if ( err ) {
       throw err;
     } else {
       // Client is now authorized and able to make API calls
-      console.log('access token:', accessToken);
-      token = accessToken;
+      console.log('access token:', aT);
+      SC.accessToken: aT;
     }
   });
   console.log("access token var: " + token);

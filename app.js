@@ -57,6 +57,7 @@ app.use('/redirect', function(req, res){
     }
   });
 
+  res.end();
 });
 
 // catch 404 and forward to error handler

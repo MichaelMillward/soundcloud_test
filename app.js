@@ -47,7 +47,7 @@ app.use('/me', function(req, res){
   res.end();
 });
 
-})
+});
 
 app.use('/soundcloud', function(req, res){
   var url = SC.getConnectUrl();

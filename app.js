@@ -65,7 +65,6 @@ app.use('/redirect', function(req, res){
     } else {
       // Client is now authorized and able to make API calls
       console.log('access token:', aT);
-      SC.accessToken: aT;
     }
   });
   console.log("access token var: " + token);

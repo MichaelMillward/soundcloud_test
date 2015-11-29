@@ -36,16 +36,14 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.use('/me', function(req, res){
-
   SC.get('/me', function(err, user) {
-  if ( err ) {
-    throw err;
-  } else {
-    console.log('user retrieved:', user);
-  }
-});
+    if ( err ) {
+      throw err;
+    } else {
+      console.log('user retrieved:', user);
+    }
+  });
   res.end();
-
 });
 
 app.use('/soundcloud', function(req, res){

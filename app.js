@@ -35,16 +35,16 @@ app.use('/', routes);
 
 app.use('/users', users);
 
-app.use('/getuser', function(req, res){
+app.use('/me', function(req, res){
 
-  SC.get('/users', function(err, user) {
+  SC.get('/me', function(err, user) {
   if ( err ) {
     throw err;
   } else {
     console.log('user retrieved:', user);
   }
 
-  res
+  res.end();
 });
 
 })
